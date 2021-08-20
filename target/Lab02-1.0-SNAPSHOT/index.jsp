@@ -11,6 +11,6 @@
 <a href="hello-servlet">Hello Servlet</a><br>
 <a href="student-list">Student List</a><br>
 <a href="add-student">Add New Student</a><br>
-<a href="#">Search Student</a><br>
+<a href="search-student">Search Student</a><br>
 </body>
 </html>

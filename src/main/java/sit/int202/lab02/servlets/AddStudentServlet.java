@@ -51,7 +51,8 @@ public class AddStudentServlet extends HttpServlet {
         printWriter.print("<h1>Student Resistration Form Data</h1>");
         printWriter.print("</body>");
         printWriter.print("</html>");
-        printWriter.print("<a href='student-list'>[Go list]</a>");
+        printWriter.print("<a href='student-list'>[Go list]</a><br>");
+        printWriter.print("<a href='add-student'>[Add again]</a>");
         printWriter.close();
         StudentRepository studentRepository = new StudentRepository();
         Student student = new Student(Integer.parseInt(id),name,Double.parseDouble(gpax));

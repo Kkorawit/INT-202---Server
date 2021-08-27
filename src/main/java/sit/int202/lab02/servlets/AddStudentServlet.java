@@ -19,11 +19,10 @@ import java.io.PrintWriter;
 public class AddStudentServlet extends HttpServlet {
 
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        StudentRepository studentRepository = new StudentRepository();
-//        Student student = new Student(90001, "New Student", 3.59);
-//        studentRepository.save(student);
+        StudentRepository studentRepository = new StudentRepository();
+        Student student = new Student(90001, "New Student", 3.59);
+        studentRepository.save(student);
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
             out.println("<body style='padding: 100px'>");
@@ -37,6 +36,12 @@ public class AddStudentServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
+
+
+//         วิธีที่อาจารย์สอน //
+//        getServletContext().getRequestDispatcher("/StudentForm.jsp").forward(request, response);
+
+
     }
 
 
@@ -55,9 +60,23 @@ public class AddStudentServlet extends HttpServlet {
         printWriter.print("<a href='add-student'>[Add again]</a>");
         printWriter.close();
         StudentRepository studentRepository = new StudentRepository();
-        Student student = new Student(Integer.parseInt(id),name,Double.parseDouble(gpax));
+        Student student = new Student(Integer.parseInt(id), name, Double.parseDouble(gpax));
         studentRepository.save(student);
 
+//        วิธีของอาจารย์
+// String id = request.getParameter("id");
+// String name = request.getParameter("name");
+// String gpax = request.getParameter("gpax");
+//        if(id==null || id.length()==0 || name == null || name.trim().length() == 0 || gpax == null || gpax.length() == 0) {
+//            request.setAttribute("msg","Invalid input all fields are required  ");
+//            getServletContext().getRequestDispatcher("/StudentForm.jsp").forward(request,response);
+//            return;
+//        }
+//        Student student = new Student(Integer.valueOf(id),name,Double.valueOf(gpax));
+//        StudentRepository studentRepository = new StudentRepository();
+//        studentRepository.save(student);
+//        getServletContext().getRequestDispatcher("/Index.jsp").forward(request,response);
+//    }
     }
 }
 

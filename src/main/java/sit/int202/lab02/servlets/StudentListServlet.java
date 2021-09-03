@@ -6,7 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import sit.int202.lab02.models.Student;
 import sit.int202.lab02.models.StudentRepository;
 
 import java.io.IOException;
@@ -36,5 +35,6 @@ public class StudentListServlet extends HttpServlet {
 //        }
         request.setAttribute("students", studentRepository.all());
         getServletContext().getRequestDispatcher("/StudentList.jsp").forward(request,response);
+
     }
 }

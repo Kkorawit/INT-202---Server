@@ -26,22 +26,24 @@
         <form method='post' action='add-student'>
             <div class="form-group">
                 <label for="id">Student Id:</label>
-                <input type="number" class="form-control" id="id" name="id">
+                <input type="number" class="form-control" id="id" name="id" value="${param.id}">
             </div>
             <div class="form-group mt-2 mb-4">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" size="50">
+                <input type="text" class="form-control" id="name" name="name" size="50" value="${param.name}">
             </div>
             <div class="form-group mt-2 mb-4">
                 <label for="gpax">Gpax:</label>
                 <input type="number" class="form-control" id="gpax" name="gpax"
-                       min="0" max="4.0" step="0.05">
+                       min="0" max="4.0" step="0.05" value="${param.gpax}">
             </div>
             <input type="submit" value="Save">
 
         </form>
     </div>
-
+    <div class="d-flex flex-row border-1 border-dark bg-light w-50 p-4">
+        <h3 class ="text-danger">${msg}</h3>
+    </div>
 
 </div>
 </body>

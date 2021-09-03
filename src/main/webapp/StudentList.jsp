@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: koraw
@@ -22,19 +23,28 @@
 </head>
 <body>
 <div class="container">
-    <H3>Student List ::</H3><hr/>
+    <H3>Student List ::</H3>
+    <hr/>
     <div class="row pl-2">
-        <%
-            Collection<Student> students = (Collection<Student>) request.getAttribute("students");
-            for (Student student : students) {%>
-        <div class="col-2 bg-light">
-            <div>Id: <%= student.getId()%></div>
-            <div>Name: <%= student.getName()%></div>
-            <div>gpax: <%= student.getGpax()%></div>
-            <div><hr></div>
-        </div>
-        <%}%>
+        <%--        <%--%>
+        <%--            Collection<Student> students = (Collection<Student>) request.getAttribute("students");--%>
+        <%--            for (Student student : students) {%>--%>
+        <c:forEach items="${students}" var="get" varStatus="vs">
+            <div class="col-2 p-1 m-2 border border-secondary
+                ${vs.count%5==1 || vs.count%5==3 || vs.count%5==0? 'bg-secondary' : ''}">
+                <div>Id: ${get.id}</div>
+                <div>Name: ${get.name}</div>
+                <div>Gpax: ${get.gpax}</div>
+                <div>
+                    <hr>
+                </div>
+            </div>
+            <%--        <%}%>--%>
+        </c:forEach>
     </div>
+    <a href="index.jsp">
+        <button> [GO Back]</button>
+    </a>
 </div>
 </body>
 </html>
